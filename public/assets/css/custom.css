@@ -1,0 +1,20 @@
+/*
+*
+* ==========================================
+* FOR DEMO PURPOSE
+* ==========================================
+*
+*/
+
+body {
+    background: #F3904F ;
+    background: -webkit-linear-gradient(to right, #F3904F, #3B4371);
+    background: linear-gradient(to right, #F3904F, #3B4371);
+    min-height: 100vh;
+}
+
+.text-gray {
+    color: #aaa;
+}
+
+
