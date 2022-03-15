@@ -32,11 +32,8 @@
         <!-- For demo purpose -->
         <div class="row text-center text-white mb-5">
             <div class="col-lg-7 mx-auto">
-                <h1 class="display-4">Live Score App</h1>
-                <p class="lead mb-0">Notre challenge de ce mois porte sur: les résultats sportifs en direct</p>
-                <p class="lead">by <a href="https://vanotis720.tech" class="text-white">
-                        <u>vander otis</u></a>
-                </p>
+                <h1 class="display-4">Championnats</h1>
+                <p class="lead mb-0">Ceci est une liste exhaustive des championnats de football dans le monde</p>
             </div>
         </div>
         <!-- End -->

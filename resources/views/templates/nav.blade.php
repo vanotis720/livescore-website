@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">LiveScore.Foot</a>
+    <a class="navbar-brand" href="/">LiveScore.Foot</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -14,7 +14,7 @@
                 <a class="nav-link" href="{{ route('competitions.index') }}">Competitions</a>
             </li>
             <li class="nav-item {{ request()->is('matchs') ? 'active' : '' }}">
-                <a class="nav-link" href="/">Matchs a venir</a>
+                <a class="nav-link" href="{{ route('matchs.next') }}">Matchs a venir</a>
             </li>
         </ul>
         <ul class="navbar-nav my-2 my-lg-0">

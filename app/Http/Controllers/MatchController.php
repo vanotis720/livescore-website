@@ -9,11 +9,22 @@ class MatchController extends Controller
 {
     public function getNextMatch()
     {
-        return [];
+        // return [];
         $endDate = Carbon::createFromFormat('Y-m-d', date('Y-m-d'))->addDays(1);
         $data = Http::get(env('API_URL') . '/matches', ['limit' => 10, 'dateFrom' => date('Y-m-d'), 'dateTo' => $endDate->toDateString()]);
+        $matchs = json_decode($data->getBody()->getContents());
+
+        return view('matchs', compact('matchs'));
+
+    }
+
+    public function todayMatch()
+    {
+        // return [];
+        $data = Http::get(env('API_URL') . '/matches', ['limit' => 10, 'dateFrom' => date('Y-m-d'), 'dateTo' => date('Y-m-d')]);
         return json_decode($data->getBody()->getContents());
     }
+
 
 
     public function addPost()

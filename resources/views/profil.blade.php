@@ -141,7 +141,7 @@
                                 </div>
                                 <h3 class="m-b-0 text-capitalize">{{ $user->username }}</h3>
                                 <p class="text-uppercase">{{ $user->email }}</p>
-                                <a href="{{ route('profil') }}"
+                                <a href="{{ route('logout') }}"
                                     class="m-t-10 waves-effect waves-dark btn btn-primary btn-md btn-rounded"
                                     data-abc="true">
                                     Me deconnecter

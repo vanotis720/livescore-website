@@ -6,6 +6,7 @@ use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\CompetitionController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\MatchController;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,6 +49,8 @@ Route::post('/reset-password', [ForgotPasswordController::class, 'updatePassword
 Route::get('/', [HomeController::class, 'home'])->name('home');
 Route::get( '/competitions', [CompetitionController::class, 'index'])->name('competitions.index');
 Route::get('/competitions/{id}', [CompetitionController::class, 'show'])->name('competitions.show');
+
+Route::get('/matchs', [MatchController::class, 'getNextMatch'])->name('matchs.next');
 
 Route::middleware('auth')->group(function () {
     Route::get('profil', [AuthController::class, 'getUser'])->name('profil');

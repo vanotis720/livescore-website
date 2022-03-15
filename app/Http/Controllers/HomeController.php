@@ -13,7 +13,7 @@ class HomeController extends Controller
 
     public function home()
     {
-        $nextmatch = $this->matchController->getNextMatch();
+        $nextmatch = $this->matchController->todayMatch();
         return view('home', compact('nextmatch'));
     }
 }
