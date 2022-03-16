@@ -51,6 +51,8 @@ Route::get( '/competitions', [CompetitionController::class, 'index'])->name('com
 Route::get('/competitions/{id}', [CompetitionController::class, 'show'])->name('competitions.show');
 
 Route::get('/matchs', [MatchController::class, 'getNextMatch'])->name('matchs.next');
+Route::get('/matchs/last', [MatchController::class, 'lastDayMatch'])->name('matchs.last');
+
 
 Route::middleware('auth')->group(function () {
     Route::get('profil', [AuthController::class, 'getUser'])->name('profil');

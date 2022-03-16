@@ -25,16 +25,14 @@ class MatchController extends Controller
         return json_decode($data->getBody()->getContents());
     }
 
-
-
-    public function addPost()
+    public function lastDayMatch()
     {
-        $data = Http::post(env('API_URL') . '/param', [
-            'title' => 'foo',
-            'body' => 'bar',
-            'userId' => 1
-        ]);
-        $post = json_decode($data->getBody()->getContents());
-        dd($post);
+        // return [];
+        $date = Carbon::createFromFormat('Y-m-d', date('Y-m-d'))->subDays(1);
+        $data = Http::get(env('API_URL') . '/matches', ['limit' => 10, 'dateFrom' => $date->toDateString(), 'dateTo' => date('Y-m-d')]);
+        $lastmatch = json_decode($data->getBody()->getContents());
+
+        return view('last-day-matchs', compact('lastmatch','date'));
     }
+
 }

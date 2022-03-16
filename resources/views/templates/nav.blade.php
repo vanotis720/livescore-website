@@ -16,6 +16,9 @@
             <li class="nav-item {{ request()->is('matchs') ? 'active' : '' }}">
                 <a class="nav-link" href="{{ route('matchs.next') }}">Matchs a venir</a>
             </li>
+            <li class="nav-item {{ request()->is('matchs') ? 'active' : '' }}">
+                <a class="nav-link" href="{{ route('matchs.last') }}">Resultats d'hier</a>
+            </li>
         </ul>
         <ul class="navbar-nav my-2 my-lg-0">
             @guest
