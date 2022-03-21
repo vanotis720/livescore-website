@@ -137,7 +137,7 @@
                                 alt="Card image">
                             <div class="card-body little-profile text-center">
                                 <div class="pro-img">
-                                    <img src="{{ asset('storage/' . $user->avatar) }}" alt="user profile">
+                                    <img src="{{ secure_asset('storage/' . $user->avatar) }}" alt="user profile">
                                 </div>
                                 <h3 class="m-b-0 text-capitalize">{{ $user->username }}</h3>
                                 <p class="text-uppercase">{{ $user->email }}</p>
