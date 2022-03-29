@@ -13,7 +13,8 @@ class HomeController extends Controller
 
     public function home()
     {
-        $nextmatch = $this->matchController->todayMatch();
-        return view('home', compact('nextmatch'));
+        $liveScore = $this->matchController->todayMatch();
+        $date = now('Africa/Lubumbashi');
+        return view('home', compact('liveScore', 'date'));
     }
 }

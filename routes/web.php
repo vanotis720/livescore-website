@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
@@ -47,8 +46,9 @@ Route::post('/reset-password', [ForgotPasswordController::class, 'updatePassword
 
 
 Route::get('/', [HomeController::class, 'home'])->name('home');
-Route::get( '/competitions', [CompetitionController::class, 'index'])->name('competitions.index');
+Route::get('/competitions', [CompetitionController::class, 'index'])->name('competitions.index');
 Route::get('/competitions/{id}', [CompetitionController::class, 'show'])->name('competitions.show');
+
 
 Route::get('/matchs', [MatchController::class, 'getNextMatch'])->name('matchs.next');
 Route::get('/matchs/last', [MatchController::class, 'lastDayMatch'])->name('matchs.last');

@@ -1,47 +1,22 @@
-<!DOCTYPE html>
-<html lang="fr">
-<!-- Basic -->
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<!-- Mobile Metas -->
-<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<!-- Site Metas -->
-<title>Live Score Website</title>
-<meta name="keywords" content="">
-<meta name="description" content="">
-<meta name="author" content="">
-<!-- Site Icons -->
-<link rel="shortcut icon" href="" type="image/x-icon" />
-<link rel="apple-touch-icon" href="">
-<!-- Bootstrap CSS -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+@extends('templates.layout')
+@section('title')
+    Competitions
+@endsection
+@section('content')
 
-<!-- Custom CSS -->
-<link rel="stylesheet" href="{{ asset('assets/css/custom.css') }}">
-
-</head>
-
-<body class="">
-
-    <div class="container py-5">
-
-        @include('templates.nav')
-
-        <!-- For demo purpose -->
-        <div class="row text-center text-white mb-5">
-            <div class="col-lg-7 mx-auto">
-                <h1 class="display-4">Championnats</h1>
-                <p class="lead mb-0">Ceci est une liste exhaustive des championnats de football dans le monde</p>
-            </div>
+    <!-- For demo purpose -->
+    <div class="row text-center text-white mb-5">
+        <div class="col-lg-7 mx-auto">
+            <h1 class="display-4">Championnats</h1>
+            <p class="lead mb-0">Ceci est une liste non exhaustive des championnats de football dans le monde</p>
         </div>
-        <!-- End -->
+    </div>
+    <!-- End -->
 
-        <div class="row">
-            <div class="col-lg-8 mx-auto">
-
-                @foreach ($results->competitions as $competition)
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            @isset($results->result)
+                @foreach ($results->result as $competition)
                     <!-- List group-->
                     <ul class="list-group shadow">
 
@@ -51,12 +26,12 @@
                             <div class="media align-items-lg-center flex-column flex-lg-row p-3">
                                 <div class="media-body order-2 order-lg-1">
                                     <h5 class="mt-0 font-weight-bold mb-2">
-                                        <a href="{{ route('competitions.show', $competition->id) }}">
-                                            {{ $competition->name }}
+                                        <a href="">
+                                            {{ $competition->league_name }}
                                         </a>
                                     </h5>
                                     <p class="font-italic text-muted mb-0 small">
-                                        Region: {{ $competition->area->name }}
+                                        Region: {{ $competition->country_name }}
                                     </p>
                                     <div class="d-flex align-items-center justify-content-between mt-1">
                                         <h6 class="font-weight-bold my-2">
@@ -64,12 +39,12 @@
                                         </h6>
                                     </div>
                                 </div>
-                                @if ($competition->emblemUrl)
-                                    <img src="{{ $competition->emblemUrl }}" alt="{{ $competition->area->name }}"
+                                @if ($competition->league_logo)
+                                    <img src="{{ $competition->league_logo }}" alt="{{ $competition->country_name }}"
                                         width="200" class="ml-lg-5 order-1 order-lg-2">
                                 @else
-                                    <img src="{{ asset('assets/images/question-circle.svg') }}" alt="{{ $competition->area->name }}"
-                                        width="100" class="ml-lg-5 order-1 order-lg-2">
+                                    <img src="{{ asset('assets/images/question-circle.svg') }}"
+                                        alt="{{ $competition->country_name }}" width="100" class="ml-lg-5 order-1 order-lg-2">
                                 @endif
 
                             </div>
@@ -80,18 +55,11 @@
                     </ul>
                     <!-- End -->
                 @endforeach
-            </div>
+            @else
+                <div class="alert alert-danger">
+                    <h1>Aucun Competitions supportees</h1>
+                </div>
+            @endisset
         </div>
     </div>
-
-    @include('templates.footer')
-
-
-    <!-- ALL PLUGINS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
-
-    {{-- <script src="{{ asset('assets/js/custom.js') }}"></script> --}}
-</body>
-
-</html>
+@endsection

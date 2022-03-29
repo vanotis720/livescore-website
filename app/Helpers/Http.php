@@ -8,11 +8,11 @@ class Http
 {
     public static function get($url, $query = [])
     {
-        $header = ['X-Auth-Token' => env('API_TOKEN')];
+        // $header = ['X-Auth-Token' => env('API_TOKEN')];
 
         $client = new GuzzleHttp\Client();
         $response = $client->get($url, [
-            'headers' => $header,
+            // 'headers' => $header,
             'query' => $query
         ]);
         return $response;

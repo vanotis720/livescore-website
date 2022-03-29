@@ -8,7 +8,7 @@ class CompetitionController extends Controller
 {
     public function index()
     {
-        $data = Http::get(env('API_URL') . '/competitions');
+        $data = Http::get(env('API_URL'), ['met' => 'Leagues', 'APIkey' => env('API_TOKEN')]);
         $results = json_decode($data->getBody()->getContents());
         return view('competitions', compact('results'));
     }
